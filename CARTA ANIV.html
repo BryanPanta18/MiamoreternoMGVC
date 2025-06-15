@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi Carta de Amor</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans&display=swap');
+
+    /* Fondo romántico con degradado y patrón de corazones */
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #d68585 0%, #fad0c4 99%, #fad0c4 100%);
+      font-family: 'Open Sans', sans-serif;
+      color: #4a1a2a;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+
+    /* Contenedor principal */
+    .carta-container {
+      background: rgba(255, 255, 255, 0.9);
+      max-width: 900px;
+      border-radius: 25px;
+      padding: 40px 50px;
+      box-shadow: 0 8px 25px rgba(255, 105, 180, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decoraciones (corazones flotantes) */
+    .heart {
+      position: absolute;
+      background: #ff4d6d;
+      width: 25px;
+      height: 25px;
+      transform: rotate(-45deg);
+      animation: floatUp 6s infinite ease-in-out;
+      opacity: 0.8;
+      border-radius: 20% 80% 80% 20% / 50% 50% 50% 50%;
+      box-shadow: 0 0 8px #ff4d6d88;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      background: #ff4d6d;
+      border-radius: 50%;
+    }
+    .heart::before {
+      width: 25px;
+      height: 25px;
+      top: -13px;
+      left: 0;
+    }
+    .heart::after {
+      width: 25px;
+      height: 25px;
+      top: 0;
+      left: 13px;
+    }
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(-45deg);
+        opacity: 0.8;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) rotate(-45deg);
+        opacity: 0;
+      }
+    }
+
+    /* Posiciones de corazones para animar */
+    .heart1 {
+      left: 10%;
+      bottom: 10px;
+      animation-delay: 0s;
+    }
+    .heart2 {
+      left: 30%;
+      bottom: 20px;
+      animation-delay: 2s;
+      width: 30px;
+      height: 30px;
+    }
+    .heart3 {
+      left: 50%;
+      bottom: 15px;
+      animation-delay: 1.2s;
+      width: 20px;
+      height: 20px;
+    }
+    .heart4 {
+      left: 70%;
+      bottom: 5px;
+      animation-delay: 3s;
+      width: 28px;
+      height: 28px;
+    }
+    .heart5 {
+      left: 85%;
+      bottom: 12px;
+      animation-delay: 1.7s;
+      width: 22px;
+      height: 22px;
+    }
+
+    /* Título con fuente cursiva romántica */
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.8rem;
+      color: #e91e63;
+      margin-bottom: 0;
+      text-align: center;
+      text-shadow: 1px 1px 5px #ff6fa9;
+    }
+
+    /* Subtítulo */
+    h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #d81b60;
+      margin-top: 10px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 400;
+      letter-spacing: 1.2px;
+      text-shadow: 1px 1px 3px #ff82ab;
+    }
+
+    /* Sección de párrafos */
+    .contenido {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #4a1a2a;
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      text-align: justify;
+    }
+
+    /* Imágenes decorativas */
+    .imagenes {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .imagenes img {
+      border-radius: 20px;
+      width: 180px;
+      height: 120px;
+      object-fit: cover;
+      box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      border: 3px solid #f48fb1;
+    }
+    .imagenes img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(233, 30, 99, 0.7);
+    }
+
+    /* Firma al final */
+    .firma {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.7rem;
+      color: #c2185b;
+      text-align: right;
+      margin-top: 30px;
+      margin-right: 15px;
+      user-select: none;
+      text-shadow: 1px 1px 2px #ff6fa9;
+    }
+
+    /* Responsividad */
+    @media (max-width: 700px) {
+      .carta-container {
+        padding: 25px 20px;
+      }
+      h1 {
+        font-size: 2.8rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .imagenes img {
+        width: 140px;
+        height: 100px;
+      }
+      .contenido {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="carta-container" role="main" aria-label="Carta de amor romántica">
+
+    <!-- Corazones animados decorativos -->
+    <div class="heart heart1" aria-hidden="true"></div>
+    <div class="heart heart2" aria-hidden="true"></div>
+    <div class="heart heart3" aria-hidden="true"></div>
+    <div class="heart heart4" aria-hidden="true"></div>
+    <div class="heart heart5" aria-hidden="true"></div>
+
+    <h1>Mi Amor Eterno</h1>
+    <h2>Una carta para ti, mi persona favorita</h2>
+
+    <div class="contenido">
+      <p>Solo a pasado un mes desde que dimos el primer graaaaan paso, que es casarnos mi amor. No miento al decirte que estoy mas que feliz y dichoso de haber dado ese gran paso y que tu seas esa persona que me acompañe el resto de mi vida. Este primer mes de esposos solo me hizo ver la gran mujer que eres y me hizo confirmar a mi mismo que eres la mujer que siempre desee tener a mi lado.</p>
+
+      <p>El nidito de amor que hemos construido juntos es nuestro refugio en medio de las tormentas. Nos aceptamos como somos, nos comprendemos y buscamos cada dia ser mejores para nosotros mismos. Esposa mia prometo seguir caminando a tu lado, celebrando nuestras victorias y apoyándonos en los momentos difíciles. Eres mi inspiración, mi mejor amiga y el amor de mi vida. Gracias por ser mi cómplice y por hacer que cada día valga la pena. </p>
+
+      <p>Hoy es un dia muy especial y por eso quise escribirte estas letras que salen desde mi corazón, no tienes idea del inmenso amor que siento hacia ti mi esposa hermosa.</p>
+    </div>
+
+    <div class="imagenes" aria-label="Imágenes románticas decorativas">
+      <img src="https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/488724523_2359939997722350_7256688972389304387_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEQ36O34NrmXyVLoqNPbGmzlYEaeysy_lyVgRp7KzL-XGa4WgAmPTE2yvrblEnfZCcSTcwxQQvzVLUCSmy8rh0j&_nc_ohc=nda8JDYr-GwQ7kNvwF8956J&_nc_oc=Adlkwk3qDXh0-dkTB01twzX1FfokPyVk5C0E9Vpz-fe5JHgqzRGRVVP523D8Dtm4Vte5bRWkVjNJNt17FjD6LBig&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=rDPFlX7ZxKzJzp0d7AcPnQ&oh=00_AfNR7vOAwGqx1TOCXyTgcI6P0ytpWg_wrJqL3JQpGAlFCA&oe=6853E430" alt="Pareja abrazándose al atardecer" />
+      <img src="https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/488765765_4099737396914544_1946595978477649664_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEhWWQl4jUOZLRnSk50vIfX5Ftg_LtzyPjkW2D8u3PI-LyKihz9pejhAJfmWNWZJjC5KV05gGP4opVfAuWRkjhw&_nc_ohc=eLr0T5veKCIQ7kNvwEduaQS&_nc_oc=AdnODIhkXHGEsN-m6ad61CyxJT0iJDL5VR2KlEEyB8RkTKk9_gga3uMFhfy-xoCZ1Y9tVFb3AdsFkh5305FxRHvS&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=mqM_mPiokNwKFCGETj8huw&oh=00_AfO_rr0jw0QpF9cVAudccsM4WKoOLT4h1luQjU6EeBVk3Q&oe=6853D9D0" alt="Corazones dibujados en la arena" />
+      <img src="https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/487748841_2091486314609619_2504838965648178637_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEOqxv1oczIgOv4zaVm7fBpj9wsRb2ZrDqP3CxFvZmsOuEtitgu_I92suvXdjLlqvBFUFc7wWc5v9OSrHZYPUTz&_nc_ohc=-NeqRtCQyBwQ7kNvwGa1fA4&_nc_oc=Adn5nbRLTCX2tZSM4R22yUlClBo_oyKx_LN5fTNW8Oen9vPHVyqwsS2oSyc96WrvBxAdAbmqIE0Zgs12i0yuftF2&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=imWEB9BGxynfIbsR2WbTdw&oh=00_AfM0B6Eo-APQ9YU4DAfvvQc82UYdTUjTtHTH7JB_GBLWcw&oe=6853D63F" alt="Manos entrelazadas" />
+    </div>
+
+    <div class="contenido">
+      <p>En este día especial, deseo que nuestro amor siga creciendo muchisimo, que cada momento juntos sea inolvidable y que nunca falte la pasión y el respeto que nos une y nos hace mas fuertes. Que esta cartita sea una pequeña muestra de lo grande que es mi amor por ti.</p>
+
+      <p>Te amo hasta el infinito y más allá , más allá del tiempo y del espacio. Eres mi vida, mi corazón, mi todo.</p>
+    </div>
+
+    <div class="firma" aria-label="Firma de la carta">
+      Con todo mi amor,<br />
+      <strong>Bryan Panta</strong>
+    </div>
+  </div>
+
+</body>
+</html>
